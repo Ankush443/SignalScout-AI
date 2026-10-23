@@ -1,81 +1,224 @@
 [
   {
-    "company_id": "COMP001",
     "name": "NovaAI Technologies",
-    "description": "A B2B software company expanding its AI products.",
-    "industry": "Artificial Intelligence",
     "signals": [
       {
         "signal_id": "FUNDING001",
         "signal_type": "funding",
         "title": "Series A funding announced",
-        "description": "The company announced a new funding round to expand its AI products.",
+        "description": "The company announced funding to expand its AI products.",
         "detected_at": "2026-10-19",
-        "source_url": "https://example.com/news/funding"
-      }
-    ]
-  },
-  {
-    "company_id": "COMP002",
-    "name": "CloudStack Solutions",
-    "description": "A cloud software company building enterprise automation tools.",
-    "industry": "Software",
-    "signals": [
-      {
-        "signal_id": "HIRING001",
-        "signal_type": "hiring",
-        "title": "Hiring AI engineers",
-        "description": "The company has published openings for three AI engineers.",
-        "detected_at": "2026-10-18",
-        "source_url": "https://example.com/careers"
-      }
-    ]
-  },
-  {
-    "company_id": "COMP003",
-    "name": "DataBridge AI",
-    "description": "A data analytics company developing AI-powered business solutions.",
-    "industry": "Artificial Intelligence",
-    "signals": [
-      {
-        "signal_id": "FUNDING002",
-        "signal_type": "funding",
-        "title": "New investment secured",
-        "description": "The company announced investment to accelerate product development.",
-        "detected_at": "2026-10-17",
-        "source_url": "https://example.com/news/investment"
+        "source_url": "https://example.com/news/funding",
+        "source_name": "Example News"
       },
       {
-        "signal_id": "HIRING002",
+        "signal_id": "HIRING003",
         "signal_type": "hiring",
-        "title": "Expanding AI engineering team",
-        "description": "The company is recruiting two machine learning engineers.",
-        "detected_at": "2026-10-20",
-        "source_url": "https://example.com/jobs"
+        "title": "AI engineering team expansion",
+        "description": "The company is recruiting AI engineers.",
+        "detected_at": "2026-10-21",
+        "source_url": "https://example.com/careers",
+        "source_name": "Company Careers"
       }
     ]
   },
   {
-    "company_id": "COMP004",
-    "name": "BrightPath Systems",
-    "description": "A business software company focused on workflow management.",
-    "industry": "Software",
-    "signals": []
-  },
-    {
-    "company_id": "COMP005",
-    "name": "5th company",
-    "description": "A 5th Software company building enterprise automation tools.",
-    "industry": "Software",
+    "name": "CloudStack Solutions",
     "signals": [
       {
         "signal_id": "HIRING001",
-        "signal_type": " HIRING ",
-        "title": "Hiring AI engineers",
-        "description": "The company has published openings for three AI engineers.",
+        "signal_type": "hiring",
+        "title": "Hiring backend engineers",
+        "description": "The company is expanding its engineering team.",
         "detected_at": "2026-10-18",
-        "source_url": "https://example.com/careers"
+        "source_url": null,
+        "source_name": null
       }
     ]
+  },
+  {
+    "name": "DataBridge AI",
+    "signals": []
+  },
+  {
+    "name": "BrightPath Systems",
+    "signals": [
+      {
+        "signal_id": "FUNDING004",
+        "signal_type": "funding",
+        "title": "Seed funding announced",
+        "description": "The company announced an early-stage funding round.",
+        "detected_at": "2026-10-15",
+        "source_url": "https://example.com/news/seed-round",
+        "source_name": "Example News"
+      },
+      {
+        "signal_id": "FUNDING004",
+        "signal_type": "funding",
+        "title": "Seed funding announced",
+        "description": "The company announced an early-stage funding round.",
+        "detected_at": "2026-10-15",
+        "source_url": "https://example.com/news/seed-round",
+        "source_name": "Example News"
+      }
+    ]
+  },
+  {
+    "name": "QuantumLeap Labs",
+    "signals": [
+      {
+        "signal_id": "FUNDING010",
+        "signal_type": "funding",
+        "title": "Seed round closed",
+        "description": "The company closed an initial seed round.",
+        "detected_at": "2026-04-12",
+        "source_url": "https://example.com/news/quantumleap-seed",
+        "source_name": "Example News"
+      },
+      {
+        "signal_id": "FUNDING011",
+        "signal_type": "funding",
+        "title": "Series A funding announced",
+        "description": "The company raised a Series A to scale its research platform.",
+        "detected_at": "2026-08-30",
+        "source_url": "https://example.com/news/quantumleap-series-a",
+        "source_name": "Tech Daily"
+      },
+      {
+        "signal_id": "FUNDING012",
+        "signal_type": "funding",
+        "title": "Strategic investment from industry partner",
+        "description": "A strategic investor joined with additional capital.",
+        "detected_at": "2026-10-20",
+        "source_url": "https://example.com/news/quantumleap-strategic",
+        "source_name": "Example News"
+      }
+    ]
+  },
+  {
+    "name": "Helix Robotics",
+    "signals": [
+      {
+        "signal_id": "HIRING010",
+        "signal_type": "hiring",
+        "title": "Hiring robotics software engineers",
+        "description": "Multiple openings for robotics software engineers.",
+        "detected_at": "2026-09-05",
+        "source_url": "https://example.com/helix/careers/robotics",
+        "source_name": "Company Careers"
+      },
+      {
+        "signal_id": "HIRING011",
+        "signal_type": "hiring",
+        "title": "Hiring machine learning engineers",
+        "description": "The company is building out its perception team.",
+        "detected_at": "2026-10-02",
+        "source_url": "https://example.com/helix/careers/ml",
+        "source_name": "Company Careers"
+      },
+      {
+        "signal_id": "HIRING012",
+        "signal_type": "hiring",
+        "title": "Hiring DevOps engineers",
+        "description": "New infrastructure roles posted.",
+        "detected_at": "2026-10-22",
+        "source_url": "https://example.com/helix/careers/devops",
+        "source_name": "Job Board"
+      },
+      {
+        "signal_id": "HIRING013",
+        "signal_type": "hiring",
+        "title": "Hiring product manager",
+        "description": "A product manager role was opened for the robotics line.",
+        "detected_at": "2026-10-22",
+        "source_url": null,
+        "source_name": "Job Board"
+      }
+    ]
+  },
+  {
+    "name": "Meridian Health Analytics",
+    "signals": [
+      {
+        "signal_id": "FUNDING020",
+        "signal_type": "funding",
+        "title": "Series B funding announced",
+        "description": "The company raised a Series B to expand into new markets.",
+        "detected_at": "2026-07-14",
+        "source_url": "https://example.com/news/meridian-series-b",
+        "source_name": "Health Tech Weekly"
+      },
+      {
+        "signal_id": "HIRING020",
+        "signal_type": "hiring",
+        "title": "Hiring data scientists",
+        "description": "The company is growing its analytics team.",
+        "detected_at": "2026-10-10",
+        "source_url": "https://example.com/meridian/careers",
+        "source_name": "Company Careers"
+      },
+      {
+        "signal_id": "HIRING021",
+        "signal_type": "hiring",
+        "title": "Hiring data engineers",
+        "description": "Roles opened to support the new data platform.",
+        "detected_at": "2026-10-16",
+        "source_url": "https://example.com/meridian/careers/data-eng",
+        "source_name": "Company Careers"
+      }
+    ]
+  },
+  {
+    "name": "Orbit Payments",
+    "signals": [
+      {
+        "signal_id": "FUNDING030",
+        "signal_type": "funding",
+        "title": "Funding round reported",
+        "description": "An unconfirmed report suggests a new funding round.",
+        "detected_at": "2026-10-23",
+        "source_url": null,
+        "source_name": null
+      },
+      {
+        "signal_id": "FUNDING030",
+        "signal_type": "funding",
+        "title": "Funding round reported",
+        "description": "An unconfirmed report suggests a new funding round.",
+        "detected_at": "2026-10-23",
+        "source_url": null,
+        "source_name": null
+      }
+    ]
+  },
+  {
+    "name": "GreenGrid Energy",
+    "signals": [
+      {
+        "signal_id": "HIRING030",
+        "signal_type": "hiring",
+        "title": "Hiring embedded firmware engineers",
+        "description": "Posted openings for firmware engineers.",
+        "detected_at": "2026-06-01",
+        "source_url": "https://example.com/greengrid/careers/firmware",
+        "source_name": "Company Careers"
+      },
+      {
+        "signal_id": "HIRING030",
+        "signal_type": "hiring",
+        "title": "Hiring embedded firmware engineers",
+        "description": "Posted openings for firmware engineers (re-posted).",
+        "detected_at": "2026-09-15",
+        "source_url": "https://example.com/greengrid/careers/firmware",
+        "source_name": "Company Careers"
+      }
+    ]
+  },
+  {
+    "name": "Lumen Retail Tech"
+  },
+  {
+    "name": "Vertex Security",
+    "signals": null
   }
 ]
