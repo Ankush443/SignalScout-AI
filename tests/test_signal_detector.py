@@ -58,5 +58,25 @@ class TestDetectSignals(unittest.TestCase):
         self.assertEqual(result["funding"], [])
         self.assertEqual(result["hiring"], [])
 
+    def test_non_list_signals_raise_value_error(self):
+        company = {"name": "InvalidCo", "signals": "funding"}
+        
+        with self.assertRaises(ValueError):
+            detect_signals(company)
+
+    def test_non_dictionary_signal_is_skipped(self):
+        company = {
+            "name": "TestCo",
+            "signals": [
+                None,
+                {"signal_type": "funding"}
+            ]
+        }
+
+        result = detect_signals(company)
+
+        self.assertEqual(len(result["funding"]), 1)
+        self.assertEqual(result["hiring"], [])
+
 if __name__ == "__main__":
     unittest.main()
