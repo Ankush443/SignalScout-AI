@@ -60,7 +60,7 @@ class TestDetectSignals(unittest.TestCase):
 
     def test_non_list_signals_raise_value_error(self):
         company = {"name": "InvalidCo", "signals": "funding"}
-        
+
         with self.assertRaises(ValueError):
             detect_signals(company)
 
@@ -77,6 +77,62 @@ class TestDetectSignals(unittest.TestCase):
 
         self.assertEqual(len(result["funding"]), 1)
         self.assertEqual(result["hiring"], [])
+
+    # Test for Duplicate
+    def test_duplicate_signal_ids_are_removed(self):
+        first = {
+            "signal_id": "F001",
+            "signal_type" : "funding",
+            "title": "Series A"
+        }
+        duplicate = {
+            "signal_id": "F001",
+            "signal_type" : "funding",
+            "title": "Series A reposted"
+        }
+
+        result = detect_signals({
+            "name": "TestCo",
+            "signals": [first, duplicate]
+        })
+
+        self.assertEqual(result["funding"], [first])
+    
+    def test_signal_without_ids_are_preserved(self):
+        first = {
+            "signal_type" : "hiring",
+            "title": "Python Engineer"
+        }
+        second = {
+            "signal_type" : "hiring",
+            "title": "Backend Engineer"
+        }
+
+        result = detect_signals({
+            "name": "TestCo",
+            "signals": [first, second]
+        })
+
+        self.assertEqual(result["hiring"], [first, second])
+
+    def test_different_signal_ids_are_preserved(self):
+        first = {
+            "signal_id": "F001",
+            "signal_type" : "funding"
+        }
+        second = {
+            "signal_id": "F002",
+            "signal_type" : "funding"
+        }
+
+        result = detect_signals({
+            "name": "TestCo",
+            "signals": [first, second]
+        })
+
+        self.assertEqual(result["funding"], [first, second])
+
+
 
 if __name__ == "__main__":
     unittest.main()
