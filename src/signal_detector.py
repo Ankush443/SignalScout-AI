@@ -1,6 +1,26 @@
 import json
 from pathlib import Path
 
+def deduplicate_signals(signals):
+    unique_signals = []
+    seen_ids = set()
+
+    for signal in signals:
+        signal_id = signal.get("signal_id")
+
+        # keep singals without a usable ID for now.
+        if signal_id is None or not str(signal_id).strip():
+            unique_signals.append(signal)
+            continue
+
+        normalized_id = str(signal_id).strip()
+
+        if normalized_id not in seen_ids:
+            seen_ids.add(normalized_id)
+            unique_signals.append(signal)
+
+    return unique_signals
+
 def detect_signals(company):
     if not isinstance(company, dict):
         raise TypeError("company must be a dictionary")
@@ -25,8 +45,8 @@ def detect_signals(company):
 
     return {
         "company": company.get("name"),
-        "funding":funding,
-        "hiring":hiring,
+        "funding":deduplicate_signals(funding),
+        "hiring":deduplicate_signals(hiring),
     }
 
 def main():
