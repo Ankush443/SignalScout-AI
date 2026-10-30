@@ -365,7 +365,6 @@ Some directions I'd like to explore next:
 - Persist ingested signals so duplicate detection can work across separate runs.
 - Add more sources, such as company blogs, job boards, and funding databases.
 - Improve cross-source matching with semantic similarity, evaluated against a labeled dataset.
-- Let users customize scoring weights and save filters.
 - Add exports and email or Slack summaries.
 - Add authentication and support for multiple users.
 
