@@ -5,11 +5,22 @@
       {
         "signal_id": "FUNDING001",
         "signal_type": "funding",
-        "title": "Series A funding announced",
+        "title": "NovaAI raises $12 million in Series A",
         "description": "The company announced funding to expand its AI products.",
+        "amount": "$12 million",
         "detected_at": "2026-10-19",
         "source_url": "https://example.com/news/funding",
         "source_name": "Example News"
+      },
+      {
+        "signal_id": "TECHDAILY_7788",
+        "signal_type": "funding",
+        "title": "NovaAI Technologies secures $12M Series A funding",
+        "description": "Trade press coverage of the same Series A round.",
+        "amount": "$12M",
+        "detected_at": "2026-10-20",
+        "source_url": "https://example.com/tech-daily/novaai-series-a",
+        "source_name": "Tech Daily"
       },
       {
         "signal_id": "HIRING003",
@@ -48,6 +59,7 @@
         "signal_type": "funding",
         "title": "Seed funding announced",
         "description": "The company announced an early-stage funding round.",
+        "amount": "$4 million",
         "detected_at": "2026-10-15",
         "source_url": "https://example.com/news/seed-round",
         "source_name": "Example News"
@@ -57,6 +69,7 @@
         "signal_type": "funding",
         "title": "Seed funding announced",
         "description": "The company announced an early-stage funding round.",
+        "amount": "$4 million",
         "detected_at": "2026-10-15",
         "source_url": "https://example.com/news/seed-round",
         "source_name": "Example News"
@@ -71,6 +84,7 @@
         "signal_type": "funding",
         "title": "Seed round closed",
         "description": "The company closed an initial seed round.",
+        "amount": "$2 million",
         "detected_at": "2026-04-12",
         "source_url": "https://example.com/news/quantumleap-seed",
         "source_name": "Example News"
@@ -80,6 +94,7 @@
         "signal_type": "funding",
         "title": "Series A funding announced",
         "description": "The company raised a Series A to scale its research platform.",
+        "amount": "$15 million",
         "detected_at": "2026-08-30",
         "source_url": "https://example.com/news/quantumleap-series-a",
         "source_name": "Tech Daily"
@@ -89,6 +104,7 @@
         "signal_type": "funding",
         "title": "Strategic investment from industry partner",
         "description": "A strategic investor joined with additional capital.",
+        "amount": "$6 million",
         "detected_at": "2026-10-20",
         "source_url": "https://example.com/news/quantumleap-strategic",
         "source_name": "Example News"
@@ -133,6 +149,15 @@
         "detected_at": "2026-10-22",
         "source_url": null,
         "source_name": "Job Board"
+      },
+      {
+        "signal_id": "HIRING014",
+        "signal_type": "hiring",
+        "title": "Hiring applied AI engineers",
+        "description": "Openings for applied AI engineers on the autonomy team.",
+        "detected_at": "2026-10-25",
+        "source_url": "https://example.com/helix/careers/applied-ai",
+        "source_name": "Job Board"
       }
     ]
   },
@@ -144,6 +169,7 @@
         "signal_type": "funding",
         "title": "Series B funding announced",
         "description": "The company raised a Series B to expand into new markets.",
+        "amount": "$40 million",
         "detected_at": "2026-07-14",
         "source_url": "https://example.com/news/meridian-series-b",
         "source_name": "Health Tech Weekly"
@@ -220,5 +246,18 @@
   {
     "name": "Vertex Security",
     "signals": null
+  },
+  {
+    "name": "Frostline Cold Chain",
+    "signals": [
+      {
+        "signal_id": "FUNDING040",
+        "signal_type": "funding",
+        "title": "Pre-seed round reported",
+        "detected_at": "2026/10/24",
+        "source_url": "htp:/broken-link",
+        "source_name": "Unknown Wire"
+      }
+    ]
   }
 ]

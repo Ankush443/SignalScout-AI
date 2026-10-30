@@ -39,8 +39,26 @@ class TestDetectSignals(unittest.TestCase):
 
         result = detect_signals(company)
 
-        self.assertEqual(result["funding"], [funding])
-        self.assertEqual(result["hiring"], [hiring])
+        # Funding records appear only in result["funding"].
+        self.assertEqual(len(result["funding"]), 1)
+        self.assertEqual(result["funding"][0]["signal_type"], "funding")
+        self.assertEqual(result["funding"][0]["detail"], "Series A")
+        self.assertEqual(
+            result["funding"][0]["source_reliability"],
+            "missing_source"
+        )
+
+        # Hiring records appear only in result["hiring"].
+        self.assertEqual(len(result["hiring"]), 1)
+        self.assertEqual(result["hiring"][0]["signal_type"], "hiring")
+        self.assertEqual(
+            result["hiring"][0]["detail"],
+            "5 AI engineering openings"
+        )
+        self.assertEqual(
+            result["hiring"][0]["source_reliability"],
+            "missing_source"
+        )
 
     def test_empty_signals_list_produces_empty_results(self):
         company = {"name": "D", "signals": []}
@@ -96,7 +114,15 @@ class TestDetectSignals(unittest.TestCase):
             "signals": [first, duplicate]
         })
 
-        self.assertEqual(result["funding"], [first])
+        # Only the first record with the duplicate ID survives,
+        # and source reliability enrichment is added.
+        self.assertEqual(len(result["funding"]), 1)
+        self.assertEqual(result["funding"][0]["signal_id"], "F001")
+        self.assertEqual(result["funding"][0]["title"], "Series A")
+        self.assertEqual(
+            result["funding"][0]["source_reliability"],
+            "missing_source"
+        )
     
     def test_signal_without_ids_are_preserved(self):
         first = {
@@ -113,7 +139,21 @@ class TestDetectSignals(unittest.TestCase):
             "signals": [first, second]
         })
 
-        self.assertEqual(result["hiring"], [first, second])
+        # Both records without IDs are kept, with their identifying
+        # fields preserved and reliability enrichment added.
+        self.assertEqual(len(result["hiring"]), 2)
+        self.assertEqual(
+            [item["title"] for item in result["hiring"]],
+            ["Python Engineer", "Backend Engineer"]
+        )
+        self.assertTrue(
+            all("signal_id" not in item or item.get("signal_id") is None
+                for item in result["hiring"])
+        )
+        self.assertTrue(
+            all(item["source_reliability"] == "missing_source"
+                for item in result["hiring"])
+        )
 
     def test_different_signal_ids_are_preserved(self):
         first = {
@@ -130,8 +170,55 @@ class TestDetectSignals(unittest.TestCase):
             "signals": [first, second]
         })
 
-        self.assertEqual(result["funding"], [first, second])
+        # Both distinct IDs remain present, in order.
+        self.assertEqual(len(result["funding"]), 2)
+        self.assertEqual(
+            [item["signal_id"] for item in result["funding"]],
+            ["F001", "F002"]
+        )
+        self.assertTrue(
+            all(item["source_reliability"] == "missing_source"
+                for item in result["funding"])
+        )
 
+    # Tests for Source Reliability Integration
+    def test_detected_signal_includes_source_reliability(self):
+        company = {
+            "name": "TestCo",
+            "signals": [
+                {
+                    "signal_id": "F001",
+                    "signal_type": "funding",
+                    "source_url": "https://example.com/news"
+                }
+            ]
+        }
+
+        result = detect_signals(company)
+
+        self.assertEqual(
+            result["funding"][0]["source_reliability"],
+            "unverified"
+        )
+
+
+    def test_missing_source_is_flagged(self):
+        company = {
+            "name": "TestCo",
+            "signals": [
+                {
+                    "signal_id": "H001",
+                    "signal_type": "hiring"
+                }
+            ]
+        }
+
+        result = detect_signals(company)
+
+        self.assertEqual(
+            result["hiring"][0]["source_reliability"],
+            "missing_source"
+        )
 
 
 if __name__ == "__main__":

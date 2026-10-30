@@ -1,5 +1,6 @@
 import json
 from pathlib import Path
+from src.source_reliability import assess_source
 
 def deduplicate_signals(signals):
     unique_signals = []
@@ -20,6 +21,16 @@ def deduplicate_signals(signals):
             unique_signals.append(signal)
 
     return unique_signals
+
+def enrich_signals(signals):
+    enriched = []
+
+    for signal in signals:
+        updated_signal = signal.copy()
+        updated_signal["source_reliability"] = assess_source(signal)
+        enriched.append(updated_signal)
+
+    return enriched
 
 def detect_signals(company):
     if not isinstance(company, dict):
@@ -45,8 +56,8 @@ def detect_signals(company):
 
     return {
         "company": company.get("name"),
-        "funding":deduplicate_signals(funding),
-        "hiring":deduplicate_signals(hiring),
+        "funding":enrich_signals(deduplicate_signals(funding)),
+        "hiring":enrich_signals(deduplicate_signals(hiring)),
     }
 
 def main():
