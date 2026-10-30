@@ -1,13 +1,14 @@
 /**
  * API client and data types for the SignalScout AI dashboard.
  *
- * The backend base URL comes from VITE_API_URL (defaults to the local
- * uvicorn server). All types mirror the JSON returned by src/api/routes.py.
+ * The backend base URL comes from VITE_API_URL (defaults to the deployed
+ * SignalScout AI backend at https://signalscout-ai.onrender.com).
+ * All types mirror the JSON returned by src/api/routes.py.
  */
 
 const BASE: string =
   (import.meta.env.VITE_API_URL as string | undefined) ||
-  "http://127.0.0.1:8000";
+  "https://signalscout-ai.onrender.com";
 
 export const apiBase = BASE;
 

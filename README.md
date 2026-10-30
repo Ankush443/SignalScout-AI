@@ -284,7 +284,7 @@ A few other available settings:
 | `API_HOST` | `127.0.0.1` | Backend bind address. |
 | `API_PORT` | `8000` | Backend port. |
 | `CORS_ORIGINS` | Vite dev/preview origins | Allowed frontend origins. |
-| `VITE_API_URL` | `http://127.0.0.1:8000` | Backend URL used by the frontend build. |
+| `VITE_API_URL` | `https://signalscout-ai.onrender.com` | Backend URL used by the frontend build. |
 
 The `.env` file is ignored by Git. Keep private configuration out of commits.
 
